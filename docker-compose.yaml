@@ -1,0 +1,112 @@
+services:
+
+# Auth-Frontend
+  auth-service-frontend:
+    build:
+      context: ./auth-frontend/frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_AUTH_API_URL: http://13.229.115.25:8000
+        VITE_FRONTEND_URL: http://47.129.240.206:5173
+        VITE_HOME_URL: http://47.129.240.206:5174
+      container_name: auth-frontend
+      ports:
+        - "5173:80"
+      networks:
+        - shopflow-frontend-network
+      restart: always
+
+  # Home-Frontend
+  home-service-frontend:
+    build:
+      context: ./home-frontend/frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_HOME_API_URL: http://13.229.115.25:8001
+        VITE_PRODUCT_API_URL: http://13.229.115.25:8002
+
+        VITE_HOME_FRONTEND_URL: http://47.129.240.206:5174
+        VITE_AUTH_FRONTEND_URL: http://47.129.240.206:5173
+        VITE_PRODUCT_FRONTEND_URL: http://47.129.240.206:5175
+        VITE_CART_FRONTEND_URL: http://47.129.240.206:5176
+    container_name: home-frontend
+    ports:
+      - "5174:80"
+    networks:
+      - shopflow-frontend-network
+    restart: always
+
+  # Product-Frontend
+  product-service-frontend:
+    build:
+      context: ./product-frontend/frontend
+      dockerfile: Dockerfile
+      args:
+      # Backend 
+        VITE_AUTH_API_URL: http://13.229.115.25:8000
+        VITE_HOME_API_URL: http://13.229.115.25:8001
+        VITE_PRODUCT_API_URL: http://13.229.115.25:8002
+        VITE_CART_API_URL: http://13.229.115.25:8003
+      # Frontend
+        VITE_AUTH_FRONTEND_URL: http://47.129.240.206:5173
+        VITE_HOME_FRONTEND_URL: http://47.129.240.206:5174
+        VITE_PRODUCT_FRONTEND_URL: http://47.129.240.206:5175
+        VITE_CART_FRONTEND_URL: http://47.129.240.206:5176
+    container_name: product-frontend
+    ports:
+      - "5175:80"
+    networks:
+      - shopflow-frontend-network
+    restart: always
+
+  # Cart-Frontend
+  cart-service-frontend:
+    build:
+      context: ./cart-frontend/frontend
+      dockerfile: Dockerfile
+      args:
+      # Backend 
+        VITE_AUTH_API_URL: http://13.229.115.25:8000
+        VITE_HOME_API_URL: http://13.229.115.25:8001
+        VITE_PRODUCT_API_URL: http://13.229.115.25:8002
+        VITE_CART_API_URL: http://13.229.115.25:8003
+      # Frontend
+        VITE_AUTH_FRONTEND_URL: http://47.129.240.206:5173
+        VITE_HOME_FRONTEND_URL: http://47.129.240.206:5174
+        VITE_PRODUCT_FRONTEND_URL: http://47.129.240.206:5175
+        VITE_CART_FRONTEND_URL: http://47.129.240.206:5176
+    container_name: cart-frontend
+    ports:
+      - "5176:80"
+    networks:
+      - shopflow-frontend-network
+    restart: always
+
+# Order-Frontend
+  order-service-frontend:
+    build:
+      context: ./order-frontend/frontend
+      dockerfile: Dockerfile
+      args:
+      # Backend 
+        VITE_AUTH_API_URL: http://13.229.115.25:8000
+        VITE_HOME_API_URL: http://13.229.115.25:8001
+        VITE_PRODUCT_API_URL: http://13.229.115.25:8002
+        VITE_CART_API_URL: http://13.229.115.25:8003
+        VITE_ORDER_API_URL: http://13.229.115.25:8004
+      # Frontend
+        VITE_AUTH_FRONTEND_URL: http://47.129.240.206:5173
+        VITE_HOME_FRONTEND_URL: http://47.129.240.206:5174
+        VITE_PRODUCT_FRONTEND_URL: http://47.129.240.206:5175
+        VITE_CART_FRONTEND_URL: http://47.129.240.206:5176
+        VITE_ORDER_FRONTEND_URL: http://:47.129.240.206:5177
+    container_name: order-frontend
+    ports:
+      - "5177:80"
+    networks:
+      - shopflow-frontend-network
+    restart: always
+
+networks:
+  shopflow-frontend-network:
+    driver: bridge
