@@ -16,8 +16,6 @@ function Login() {
   const [success, setSuccess] = useState(false);
   const AUTH_API_URL = import.meta.env.VITE_AUTH_API_URL;
 
-
-
   const navigate = useNavigate();
 
   useEffect(() => {

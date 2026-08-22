@@ -98,7 +98,7 @@ services:
         VITE_HOME_FRONTEND_URL: http://54.255.135.72:5174
         VITE_PRODUCT_FRONTEND_URL: http://54.255.135.72:5175
         VITE_CART_FRONTEND_URL: http://54.255.135.72:5176
-        VITE_ORDER_FRONTEND_URL: http://:54.255.135.72:5177
+        VITE_ORDER_FRONTEND_URL: http://54.255.135.72:5177
     container_name: order-frontend
     ports:
       - "5177:80"
