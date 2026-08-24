@@ -148,7 +148,7 @@ function Header() {
           icon={<UserOutlined style={{ fontSize: 16 }} />}
           style={navButtonStyle}
           onClick={() => {
-            window.location.href = "http://localhost:5178/profile";
+            window.location.href = `${import.meta.env.VITE_PROFILE_FRONTEND_URL}/profile`;
           }}
         >
           Profile

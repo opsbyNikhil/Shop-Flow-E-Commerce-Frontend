@@ -125,7 +125,7 @@ function Header() {
           icon={<UserOutlined style={{ fontSize: 16 }} />}
           style={navButtonStyle}
           onClick={() => {
-            window.location.href = "http://localhost:5174/profile";
+            window.location.href = `${import.meta.env.VITE_PROFILE_FRONTEND_URL}/profile`;
           }}
         >
           Profile
@@ -144,7 +144,7 @@ function Header() {
           Wishlist
         </Button>
 
-          { /* MY ORDERS */ }
+        {/* MY ORDERS */}
 
         <Button
           type="text"
