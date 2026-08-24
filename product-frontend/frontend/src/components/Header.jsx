@@ -126,7 +126,7 @@ function Header() {
           icon={<HomeOutlined style={{ fontSize: 16 }} />}
           style={navButtonStyle}
           onClick={() => {
-            window.location.href = `${import.meta.env.VITE_HOME_FRONTEND_URL}`;
+            window.location.href = `${import.meta.env.VITE_HOME_FRONTEND_URL}/home`;
           }}
         >
           Home
