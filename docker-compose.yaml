@@ -143,7 +143,7 @@ services:
         VITE_CART_FRONTEND_URL: http://13.250.205.222:5176
         VITE_ORDER_FRONTEND_URL: http://13.250.205.222:5177
         VITE_PROFILE_FRONTEND_URL: http://13.250.205.222:5178
-    container_name: product-frontend
+    container_name: profile-frontend
     ports:
       - "5178:80"
     networks:
