@@ -167,7 +167,7 @@ function Header() {
               marginLeft: 8,
             }}
             onClick={() => {
-              window.location.href = import.meta.env.VITE_CART_FRONTEND_URL;
+              window.location.href = `${import.meta.env.VITE_CART_FRONTEND_URL}/cart`;
             }}
           >
             Cart

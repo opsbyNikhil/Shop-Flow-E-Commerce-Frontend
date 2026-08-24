@@ -249,7 +249,9 @@ function Header() {
             className="sf-brand"
             align="center"
             size={0}
-            onClick={() => (window.location.href = "http://localhost:5174")}
+            onClick={() => {
+              window.location.href = `${import.meta.env.VITE_HOME_FRONTEND_URL}/home`;
+            }}
           >
             <span className="sf-brand-mark">S</span>
             <Text className="sf-brand-name">
@@ -263,7 +265,9 @@ function Header() {
               type="text"
               className="sf-nav-button"
               icon={<HomeOutlined />}
-              onClick={() => (window.location.href = "http://localhost:5174")}
+              onClick={() => {
+                window.location.href = `${import.meta.env.VITE_HOME_FRONTEND_URL}/home`;
+              }}
             >
               <span className="sf-nav-label">Home</span>
             </Button>
@@ -272,9 +276,9 @@ function Header() {
               type="text"
               className="sf-nav-button"
               icon={<ShoppingOutlined />}
-              onClick={() =>
-                (window.location.href = "http://localhost:5175/products")
-              }
+              onClick={() => {
+                window.location.href = `${import.meta.env.VITE_PRODUCT_FRONTEND_URL}/product`;
+              }}
             >
               <span className="sf-nav-label">Products</span>
             </Button>
@@ -294,7 +298,9 @@ function Header() {
               type="text"
               className="sf-nav-button"
               icon={<ShoppingCartOutlined />}
-              onClick={() => (window.location.href = "http://localhost:5176")}
+              onClick={() => {
+                window.location.href = `${import.meta.env.VITE_CART_FRONTEND_URL}/cart`;
+              }}
             >
               <span className="sf-nav-label">Cart</span>
             </Button>
@@ -303,9 +309,9 @@ function Header() {
               type="text"
               className="sf-nav-button"
               icon={<OrderedListOutlined />}
-              onClick={() =>
-                (window.location.href = "http://localhost:5177/orders")
-              }
+              onClick={() => {
+                window.location.href = `${import.meta.env.VITE_ORDER_FRONTEND_URL}/order`;
+              }}
             >
               <span className="sf-nav-label">Orders</span>
             </Button>
@@ -314,9 +320,9 @@ function Header() {
               type="primary"
               className="sf-profile-button"
               icon={<UserOutlined />}
-              onClick={() =>
-                (window.location.href = "http://localhost:5178/profile")
-              }
+              onClick={() => {
+                window.location.href = `${import.meta.env.VITE_PROFILE_FRONTEND_URL}/profile`;
+              }}
             >
               <span className="sf-nav-label">Profile</span>
             </Button>
