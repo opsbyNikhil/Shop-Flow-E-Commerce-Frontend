@@ -277,7 +277,7 @@ function Header() {
               className="sf-nav-button"
               icon={<ShoppingOutlined />}
               onClick={() => {
-                window.location.href = `${import.meta.env.VITE_PRODUCT_FRONTEND_URL}/product`;
+                window.location.href = `${import.meta.env.VITE_PRODUCT_FRONTEND_URL}/products`;
               }}
             >
               <span className="sf-nav-label">Products</span>
