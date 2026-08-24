@@ -126,7 +126,9 @@ function Header() {
           onMouseLeave={(e) =>
             (e.currentTarget.style.background = "transparent")
           }
-          onClick={() => navigate("/profile")}
+          onClick={() => {
+            window.location.href = `${import.meta.env.VITE_PROFILE_FRONTEND_URL}/profile`;
+          }}
         >
           Profile
         </Button>
