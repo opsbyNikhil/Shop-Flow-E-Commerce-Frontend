@@ -109,7 +109,7 @@ function CartSummary({ itemCount, total, navigate }) {
           fontWeight: 500,
         }}
         onClick={() => {
-          window.location.href = "http://localhost:5177/checkout";
+          window.location.href = `${import.meta.env.VITE_ORDER_FRONTEND_URL}/checkout`;
         }}
       >
         Proceed to Checkout
