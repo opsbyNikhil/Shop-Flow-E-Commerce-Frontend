@@ -99,7 +99,7 @@ function Header() {
           icon={<HomeOutlined style={{ fontSize: 16 }} />}
           style={navButtonStyle}
           onClick={() => {
-            window.location.href = `${import.meta.env.VITE_HOME_FRONTEND_URL}`;
+            window.location.href = `${import.meta.env.VITE_HOME_FRONTEND_URL}/home`;
           }}
         >
           Home
@@ -112,7 +112,7 @@ function Header() {
           icon={<ShoppingOutlined style={{ fontSize: 16 }} />}
           style={navButtonStyle}
           onClick={() => {
-            window.location.href = `${import.meta.env.VITE_PRODUCT_FRONTEND_URL}products`;
+            window.location.href = `${import.meta.env.VITE_PRODUCT_FRONTEND_URL}/products`;
           }}
         >
           Products
