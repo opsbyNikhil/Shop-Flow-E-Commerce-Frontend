@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: home-frontend-service
+  namespace: dev
+
+spec:
+  minReadySeconds: 3
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: home-frontend-service-app
+  
+  strategy:
+    type: RollingUpdate
+
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  
+  template:
+    metadata:
+      name: home-frontend-service-pod
+      labels:
+        app: home-frontend-service-app
+    
+    spec:
+      containers:
+        - name: home-frontend-service
+          image:  
+          envFrom:
+            - configMapRef:
+              name: home-frontend-service-config
+
+          imagePullPolicy:  Always
+
+          readinessProbe:
+            httpGet:
+              path: /
+              ports: 5174
+
+          ports:
+            - containerPort:  5174
+              protocol: TCP
+
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "80Mi"
+            
+            limits:
+              cpu: "80m"
+              memory: "100Mi"

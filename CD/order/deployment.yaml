@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: order-frontend-service
+  namespace: dev
+
+spec:
+  minReadySeconds: 3
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: order-frontend-service-app
+  
+  strategy:
+    type: RollingUpdate
+
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  
+  template:
+    metadata:
+      name: order-frontend-service-pod
+      labels:
+        app: order-frontend-service-app
+    
+    spec:
+      containers:
+        - name: order-frontend-service
+          image:  
+          envFrom:
+            - configMapRef:
+              name: order-frontend-service-config
+
+          imagePullPolicy:  Always
+
+          readinessProbe:
+            httpGet:
+              path: /
+              ports: 5177
+
+          ports:
+            - containerPort:  5177
+              protocol: TCP
+
+          resources:
+            requests:
+              cpu: "50m"
+              memory: "80Mi"
+            
+            limits:
+              cpu: "80m"
+              memory: "100Mi"
