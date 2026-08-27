@@ -7,11 +7,10 @@ services:
       context: ./auth-frontend/frontend
       dockerfile: Dockerfile
       args:
-        VITE_AUTH_API_URL: http://56.10.55.153:8000
-
-        VITE_FRONTEND_URL: http://18.142.93.207:5173
-        VITE_HOME_URL: http://18.142.93.207:5174
-    container_name: auth-frontend
+          VITE_AUTH_API_URL: http://13.215.86.33:8000
+          
+          VITE_HOME_URL: http://18.142.2.14:5174
+          VITE_FRONTEND_URL: http://18.142.2.14:5173
     ports:
       - "5173:80"
     networks:
@@ -26,18 +25,23 @@ services:
       context: ./home-frontend/frontend
       dockerfile: Dockerfile
       args:
-        VITE_HOME_API_URL: http://56.10.55.153:8001
-        VITE_PRODUCT_API_URL: http://56.10.55.153:8002
-        VITE_PROFILE_API_URL: http://56.10.55.153:8005
+      
+      # Backend
+        VITE_AUTH_API_URL:  http://13.215.86.33:8000
+        VITE_HOME_API_URL:  http://13.215.86.33:8001
+        VITE_PRODUCT_API_URL: http://13.215.86.33:8002
+        VITE_CART_API_URL:  http://13.215.86.33:8003
+        VITE_ORDER_API_URL: http://13.215.86.33:8004
+        VITE_PROFILE_API_URL: http://13.215.86.33:8005
 
+      # Frontend
+        VITE_AUTH_FRONTEND_URL: http://18.142.2.14:5173
+        VITE_HOME_FRONTEND_URL: http://18.142.2.14:5174
+        VITE_PRODUCT_FRONTEND_URL:  http://18.142.2.14:5175
+        VITE_CART_FRONTEND_URL: http://18.142.2.14:5176
+        VITE_ORDER_FRONTEND_URL:  http://18.142.2.14:5177
+        VITE_PROFILE_FRONTEND_URL:  http://18.142.2.14:5178
 
-        VITE_HOME_FRONTEND_URL: http://18.142.93.207:5174
-        VITE_AUTH_FRONTEND_URL: http://18.142.93.207:5173
-        VITE_PRODUCT_FRONTEND_URL: http://18.142.93.207:5175
-        VITE_CART_FRONTEND_URL: http://18.142.93.207:5176
-        VITE_PROFILE_FRONTEND_URL: http://18.142.93.207:5178
-
-    container_name: home-frontend
     ports:
       - "5174:80"
     networks:
@@ -52,21 +56,23 @@ services:
       context: ./product-frontend/frontend
       dockerfile: Dockerfile
       args:
-        # Backend
-        VITE_AUTH_API_URL: http://56.10.55.153:8000
-        VITE_HOME_API_URL: http://56.10.55.153:8001
-        VITE_PRODUCT_API_URL: http://56.10.55.153:8002
-        VITE_CART_API_URL: http://56.10.55.153:8003
-        VITE_PROFILE_API_URL: http://56.10.55.153:8005
 
-        # Frontend
-        VITE_AUTH_FRONTEND_URL: http://18.142.93.207:5173
-        VITE_HOME_FRONTEND_URL: http://18.142.93.207:5174
-        VITE_PRODUCT_FRONTEND_URL: http://18.142.93.207:5175
-        VITE_CART_FRONTEND_URL: http://18.142.93.207:5176
-        VITE_PROFILE_FRONTEND_URL: http://18.142.93.207:5178
+      # Backend
+        VITE_AUTH_API_URL:  http://13.215.86.33:8000
+        VITE_HOME_API_URL:  http://13.215.86.33:8001
+        VITE_PRODUCT_API_URL: http://13.215.86.33:8002
+        VITE_CART_API_URL:  http://13.215.86.33:8003
+        VITE_ORDER_API_URL: http://13.215.86.33:8004
+        VITE_PROFILE_API_URL: http://13.215.86.33:8005
+        
+      # Frontend 
+        VITE_AUTH_FRONTEND_URL: http://18.142.2.14:5173
+        VITE_HOME_FRONTEND_URL: http://18.142.2.14:5174
+        VITE_PRODUCT_FRONTEND_URL:  http://18.142.2.14:5175
+        VITE_CART_FRONTEND_URL: http://18.142.2.14:5176
+        VITE_ORDER_FRONTEND_URL:  http://18.142.2.14:5177
+        VITE_PROFILE_FRONTEND_URL:  http://18.142.2.14:5178
 
-    container_name: product-frontend
     ports:
       - "5175:80"
     networks:
@@ -81,21 +87,23 @@ services:
       context: ./cart-frontend/frontend
       dockerfile: Dockerfile
       args:
+
         # Backend
-        VITE_AUTH_API_URL: http://56.10.55.153:8000
-        VITE_HOME_API_URL: http://56.10.55.153:8001
-        VITE_PRODUCT_API_URL: http://56.10.55.153:8002
-        VITE_CART_API_URL: http://56.10.55.153:8003
-        VITE_PROFILE_API_URL: http://56.10.55.153:8005
+        VITE_AUTH_API_URL:  http://13.215.86.33:8000
+        VITE_HOME_API_URL:  http://13.215.86.33:8001
+        VITE_PRODUCT_API_URL: http://13.215.86.33:8002
+        VITE_CART_API_URL:  http://13.215.86.33:8003
+        VITE_ORDER_API_URL: http://13.215.86.33:8004
+        VITE_PROFILE_API_URL: http://13.215.86.33:8005
+        
+      # Frontend 
+        VITE_AUTH_FRONTEND_URL: http://18.142.2.14:5173
+        VITE_HOME_FRONTEND_URL: http://18.142.2.14:5174
+        VITE_PRODUCT_FRONTEND_URL:  http://18.142.2.14:5175
+        VITE_CART_FRONTEND_URL: http://18.142.2.14:5176
+        VITE_ORDER_FRONTEND_URL:  http://18.142.2.14:5177
+        VITE_PROFILE_FRONTEND_URL:  http://18.142.2.14:5178
 
-        # Frontend
-        VITE_AUTH_FRONTEND_URL: http://18.142.93.207:5173
-        VITE_HOME_FRONTEND_URL: http://18.142.93.207:5174
-        VITE_PRODUCT_FRONTEND_URL: http://18.142.93.207:5175
-        VITE_CART_FRONTEND_URL: http://18.142.93.207:5176
-        VITE_PROFILE_FRONTEND_URL: http://18.142.93.207:5178
-
-    container_name: cart-frontend
     ports:
       - "5176:80"
     networks:
@@ -110,23 +118,23 @@ services:
       context: ./order-frontend/frontend
       dockerfile: Dockerfile
       args:
+
         # Backend
-        VITE_AUTH_API_URL: http://56.10.55.153:8000
-        VITE_HOME_API_URL: http://56.10.55.153:8001
-        VITE_PRODUCT_API_URL: http://56.10.55.153:8002
-        VITE_CART_API_URL: http://56.10.55.153:8003
-        VITE_ORDER_API_URL: http://56.10.55.153:8004
-        VITE_PROFILE_API_URL: http://56.10.55.153:8005
+        VITE_AUTH_API_URL:  http://13.215.86.33:8000
+        VITE_HOME_API_URL:  http://13.215.86.33:8001
+        VITE_PRODUCT_API_URL: http://13.215.86.33:8002
+        VITE_CART_API_URL:  http://13.215.86.33:8003
+        VITE_ORDER_API_URL: http://13.215.86.33:8004
+        VITE_PROFILE_API_URL: http://13.215.86.33:8005
+        
+      # Frontend 
+        VITE_AUTH_FRONTEND_URL: http://18.142.2.14:5173
+        VITE_HOME_FRONTEND_URL: http://18.142.2.14:5174
+        VITE_PRODUCT_FRONTEND_URL:  http://18.142.2.14:5175
+        VITE_CART_FRONTEND_URL: http://18.142.2.14:5176
+        VITE_ORDER_FRONTEND_URL:  http://18.142.2.14:5177
+        VITE_PROFILE_FRONTEND_URL:  http://18.142.2.14:5178
 
-        # Frontend
-        VITE_AUTH_FRONTEND_URL: http://18.142.93.207:5173
-        VITE_HOME_FRONTEND_URL: http://18.142.93.207:5174
-        VITE_PRODUCT_FRONTEND_URL: http://18.142.93.207:5175
-        VITE_CART_FRONTEND_URL: http://18.142.93.207:5176
-        VITE_ORDER_FRONTEND_URL: http://18.142.93.207:5177
-        VITE_PROFILE_FRONTEND_URL: http://18.142.93.207:5178
-
-    container_name: order-frontend
     ports:
       - "5177:80"
     networks:
@@ -141,21 +149,22 @@ services:
       context: ./profile-frontend/frontend
       dockerfile: Dockerfile
       args:
-          # Backend
-        VITE_AUTH_API_URL: http://56.10.55.153:8000
-        VITE_HOME_API_URL: http://56.10.55.153:8001
-        VITE_PRODUCT_API_URL: http://56.10.55.153:8002
-        VITE_CART_API_URL: http://56.10.55.153:8003
-        VITE_ORDER_API_URL: http://56.10.55.153:8004
-        VITE_PROFILE_API_URL: http://56.10.55.153:8005
-        # Frontend
-        VITE_AUTH_FRONTEND_URL: http://18.142.93.207:5173
-        VITE_HOME_FRONTEND_URL: http://18.142.93.207:5174
-        VITE_PRODUCT_FRONTEND_URL: http://18.142.93.207:5175
-        VITE_CART_FRONTEND_URL: http://18.142.93.207:5176
-        VITE_ORDER_FRONTEND_URL: http://18.142.93.207:5177
-        VITE_PROFILE_FRONTEND_URL: http://18.142.93.207:5178
-    container_name: profile-frontend
+        # Backend
+        VITE_AUTH_API_URL:  http://13.215.86.33:8000
+        VITE_HOME_API_URL:  http://13.215.86.33:8001
+        VITE_PRODUCT_API_URL: http://13.215.86.33:8002
+        VITE_CART_API_URL:  http://13.215.86.33:8003
+        VITE_ORDER_API_URL: http://13.215.86.33:8004
+        VITE_PROFILE_API_URL: http://13.215.86.33:8005
+        
+      # Frontend 
+        VITE_AUTH_FRONTEND_URL: http://18.142.2.14:5173
+        VITE_HOME_FRONTEND_URL: http://18.142.2.14:5174
+        VITE_PRODUCT_FRONTEND_URL:  http://18.142.2.14:5175
+        VITE_CART_FRONTEND_URL: http://18.142.2.14:5176
+        VITE_ORDER_FRONTEND_URL:  http://18.142.2.14:5177
+        VITE_PROFILE_FRONTEND_URL:  http://18.142.2.14:5178
+
     ports:
       - "5178:80"
     networks:
