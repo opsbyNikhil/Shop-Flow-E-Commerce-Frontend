@@ -39,14 +39,14 @@ spec:
           readinessProbe:
             httpGet:
               path: /
-              port: 5173
+              port: 80
             initialDelaySeconds: 5
             timeoutSeconds: 2
             periodSeconds: 10
             failureThreshold: 3
 
           ports:
-            - containerPort: 5173
+            - containerPort: 80
               protocol: TCP
 
           resources:
