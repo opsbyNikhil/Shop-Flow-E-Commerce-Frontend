@@ -9,6 +9,6 @@ spec:
     app: auth-frontend-service-app
   ports:
     - port: 5173
-      targetPort: 5173
+      targetPort: 80
       protocol: TCP
       nodePort: 30006
