@@ -39,10 +39,10 @@ spec:
           readinessProbe:
             httpGet:
               path: /auth
-              port: 5173
+              port: 80
 
           ports:
-            - containerPort:  5173
+            - containerPort:  80
               protocol: TCP
 
           resources:
