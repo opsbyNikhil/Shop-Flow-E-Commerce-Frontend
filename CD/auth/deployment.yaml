@@ -32,14 +32,14 @@ spec:
           image: 984912521466.dkr.ecr.ap-southeast-1.amazonaws.com/shopflow-auth-service-frontend:1.0.0
           envFrom:
             - configMapRef:
-              name: auth-frontend-service-config
+                name: auth-frontend-service-config
 
           imagePullPolicy:  Always
 
           readinessProbe:
             httpGet:
               path: /auth
-              ports: 5173
+              port: 5173
 
           ports:
             - containerPort:  5173
