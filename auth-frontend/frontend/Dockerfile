@@ -13,4 +13,4 @@ ADD . /frontend-auth/
 RUN npm install && npm run build
 FROM nginx:alpine AS runtime
 COPY --from=build /frontend-auth/dist /usr/share/nginx/html
-EXPOSE 80
+EXPOSE 5173
