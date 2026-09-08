@@ -39,7 +39,7 @@ spec:
           readinessProbe:
             httpGet:
               path: /
-              ports: 5174
+              port: 5174
             initialDelaySeconds: 5
             timeoutSeconds: 2
             periodSeconds: 10
