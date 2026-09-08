@@ -7,7 +7,7 @@ metadata:
 
 spec:
   minReadySeconds: 3
-  replicas: 2
+  replicas: 1
 
   selector:
     matchLabels:
@@ -29,20 +29,24 @@ spec:
     spec:
       containers:
         - name: auth-frontend-service
-          image:  
+          image: 984912521466.dkr.ecr.ap-southeast-1.amazonaws.com/shopflow-auth-service-frontend:1.0.0
           envFrom:
             - configMapRef:
-              name: auth-frontend-service-config
+                name: auth-frontend-service-config
 
           imagePullPolicy:  Always
 
           readinessProbe:
             httpGet:
               path: /
-              ports: 5173
+              port: 5173
+            initialDelaySeconds: 5
+            timeoutSeconds: 2
+            periodSeconds: 10
+            failureThreshold: 3
 
           ports:
-            - containerPort:  5173
+            - containerPort: 5173
               protocol: TCP
 
           resources:

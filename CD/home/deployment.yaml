@@ -7,7 +7,7 @@ metadata:
 
 spec:
   minReadySeconds: 3
-  replicas: 2
+  replicas: 1
 
   selector:
     matchLabels:
@@ -29,17 +29,21 @@ spec:
     spec:
       containers:
         - name: home-frontend-service
-          image:  
+          image: 984912521466.dkr.ecr.ap-southeast-1.amazonaws.com/shopflow-home-service-frontend:1.0.0 
           envFrom:
             - configMapRef:
-              name: home-frontend-service-config
+                name: home-frontend-service-config
 
           imagePullPolicy:  Always
 
           readinessProbe:
             httpGet:
-              path: /
-              ports: 5174
+              path: /home
+              port: 5174
+            initialDelaySeconds: 5
+            timeoutSeconds: 2
+            periodSeconds: 10
+            failureThreshold: 3
 
           ports:
             - containerPort:  5174

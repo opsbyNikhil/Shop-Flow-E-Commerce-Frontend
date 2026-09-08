@@ -7,7 +7,7 @@ spec:
   type: NodePort
   selector:
     app: auth-frontend-service-app
-  port:
+  ports:
     - port: 5173
       targetPort: 5173
       protocol: TCP
